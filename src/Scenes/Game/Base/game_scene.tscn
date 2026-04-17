@@ -1,0 +1,242 @@
+[gd_scene load_steps=18 format=3 uid="uid://boygf3858il6m"]
+
+[ext_resource type="PackedScene" uid="uid://bqyc1uewyqx0i" path="res://Scenes/Game/Base/level_example_class.tscn" id="1_tcgci"]
+[ext_resource type="AudioStream" uid="uid://bq667lntkg3wb" path="res://resources/Music/level1.ogg" id="2_jqop0"]
+[ext_resource type="Script" uid="uid://bfbyvfjlmgw5s" path="res://Scripts/VFX/Scripts/BotonPasarRonda.cs" id="3_0ehpn"]
+[ext_resource type="PackedScene" uid="uid://jq2qg66l74q" path="res://Scenes/Shop/hotbar.tscn" id="3_e3n88"]
+[ext_resource type="Texture2D" uid="uid://bo20amsiba4do" path="res://resources/Icons/Double/button_square_line.png" id="3_efh3n"]
+[ext_resource type="Texture2D" uid="uid://ck7pooit6cf76" path="res://resources/Icons/Double/button_square_flat.png" id="4_0bub0"]
+[ext_resource type="Texture2D" uid="uid://b24icl3ppih1" path="res://resources/Icons/Double/button_square_depth_line.png" id="4_hrgg6"]
+[ext_resource type="Texture2D" uid="uid://d1465mwrlom40" path="res://resources/Icons/Double/arrow_decorative_e_small.png" id="5_4a8rk"]
+[ext_resource type="Texture2D" uid="uid://3ixyl1okwg1g" path="res://resources/Icons/Double/button_rectangle_border.png" id="6_e487i"]
+[ext_resource type="Script" uid="uid://br25sup5ismvu" path="res://Scripts/Menu/MoneyTexture.cs" id="6_nph4v"]
+[ext_resource type="Script" uid="uid://d17bf11ircebl" path="res://Scripts/Menu/LifePanel.cs" id="7_dn2ix"]
+[ext_resource type="Texture2D" uid="uid://bes7ouolblcf" path="res://resources/Icons/Double/check_round_grey_circle.png" id="8_0ehpn"]
+[ext_resource type="Texture2D" uid="uid://bnvv0e6aolx3h" path="res://resources/Icons/Double/icon_cross.png" id="9_fcnuk"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_exctt"]
+sky_top_color = Color(0.11270852, 0.59223837, 0.99999994, 1)
+sky_horizon_color = Color(0.65028906, 0.7670318, 0.8772203, 1)
+ground_bottom_color = Color(0.18029204, 0.1677331, 0.20072556, 1)
+ground_horizon_color = Color(0.65028906, 0.7670318, 0.8772203, 1)
+
+[sub_resource type="Sky" id="Sky_dn2ix"]
+sky_material = SubResource("ProceduralSkyMaterial_exctt")
+
+[sub_resource type="Environment" id="Environment_0ehpn"]
+background_mode = 2
+sky = SubResource("Sky_dn2ix")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nph4v"]
+
+[node name="Game" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_0ehpn")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+light_color = Color(0.58405614, 0.6081244, 0.78370774, 1)
+shadow_enabled = true
+
+[node name="Level_Example_Class" parent="." node_paths=PackedStringArray("BotonRonda") instance=ExtResource("1_tcgci")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.03179741, -0.046173215, 0.07311064)
+musicaNivel = ExtResource("2_jqop0")
+BotonRonda = NodePath("../Control/MarginContainer/BotonPasarRonda")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="BotonPasarRonda" type="TextureButton" parent="Control/MarginContainer" node_paths=PackedStringArray("ActualRoundLabel")]
+clip_contents = true
+custom_minimum_size = Vector2(192, 192)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+texture_normal = ExtResource("4_hrgg6")
+texture_pressed = ExtResource("4_0bub0")
+texture_hover = ExtResource("3_efh3n")
+stretch_mode = 0
+script = ExtResource("3_0ehpn")
+ActualRoundLabel = NodePath("Label")
+
+[node name="TextureRect2" type="TextureRect" parent="Control/MarginContainer/BotonPasarRonda"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_4a8rk")
+
+[node name="Label" type="Label" parent="Control/MarginContainer/BotonPasarRonda"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.5
+offset_top = -58.341
+offset_right = 45.5
+offset_bottom = -38.799305
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.14117648)
+theme_override_font_sizes/font_size = 17
+text = "NEXT ROUND"
+horizontal_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="Control/MarginContainer"]
+custom_minimum_size = Vector2(192, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxEmpty_nph4v")
+
+[node name="TextureRect" type="TextureRect" parent="Control/MarginContainer/PanelContainer" node_paths=PackedStringArray("MoneyLabel", "DifferenceLabel")]
+clip_contents = true
+layout_mode = 2
+size_flags_vertical = 8
+texture = ExtResource("6_e487i")
+expand_mode = 5
+script = ExtResource("6_nph4v")
+MoneyLabel = NodePath("MarginContainer/Label")
+DifferenceLabel = NodePath("MarginContainer/Label2")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/PanelContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -11.166667
+offset_bottom = 11.166667
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="Label" type="Label" parent="Control/MarginContainer/PanelContainer/TextureRect/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 22
+text = "000000"
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+text_overrun_behavior = 1
+visible_characters = 11
+
+[node name="Label2" type="Label" parent="Control/MarginContainer/PanelContainer/TextureRect/MarginContainer"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 22
+text = "000"
+horizontal_alignment = 2
+vertical_alignment = 1
+clip_text = true
+text_overrun_behavior = 1
+visible_characters = 11
+
+[node name="PanelContainer2" type="PanelContainer" parent="Control/MarginContainer"]
+custom_minimum_size = Vector2(192, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxEmpty_nph4v")
+
+[node name="TextureRect" type="TextureRect" parent="Control/MarginContainer/PanelContainer2" node_paths=PackedStringArray("LivesLabel")]
+clip_contents = true
+layout_mode = 2
+size_flags_vertical = 0
+texture = ExtResource("6_e487i")
+expand_mode = 5
+script = ExtResource("7_dn2ix")
+LivesLabel = NodePath("MarginContainer/Label")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/PanelContainer2/TextureRect"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -11.166667
+offset_bottom = 11.166667
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="Label" type="Label" parent="Control/MarginContainer/PanelContainer2/TextureRect/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 31
+text = "00"
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+text_overrun_behavior = 1
+visible_characters = 11
+visible_ratio = 5.5
+
+[node name="TextureRect" type="TextureRect" parent="Control/MarginContainer/PanelContainer2/TextureRect/MarginContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+texture = ExtResource("8_0ehpn")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="TextureRect2" type="TextureRect" parent="Control/MarginContainer/PanelContainer2/TextureRect/MarginContainer/TextureRect"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 0
+offset_left = 16.285034
+offset_top = -1.2141724
+offset_right = 56.285034
+offset_bottom = 22.785828
+rotation = 0.80363166
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("9_fcnuk")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Hotbar" parent="Control" instance=ExtResource("3_e3n88")]
+layout_mode = 1
+
+[connection signal="pressed" from="Control/MarginContainer/BotonPasarRonda" to="Level_Example_Class" method="OnBotonPasarRondaPressed"]

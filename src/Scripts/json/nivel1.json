@@ -1,0 +1,302 @@
+[
+  {
+    "Ronda": 1,
+    "Dificultad": 1,
+    "Paquetes": [ [ "normal", "normal","normal", "normal","normal" ] ],
+    "TimingSpawns": [ 0 ]
+  },
+  {
+    "Ronda": 2,
+    "Dificultad": 1,
+    "Paquetes": [ [ "normal", "normal", "normal" ], [ "rapido" ] ],
+    "TimingSpawns": [ 0, 0 ]
+  },
+  {
+    "Ronda": 3,
+    "Dificultad": 1,
+    "Paquetes": [ [ "normal", "normal" ], [ "rapido", "rapido" ] ],
+    "TimingSpawns": [ 0, 2.0 ]
+  },
+  {
+    "Ronda": 4,
+    "Dificultad": 1,
+    "Paquetes": [ [ "normal", "normal" ], [ "lento" ] ],
+    "TimingSpawns": [ 0.0, 4.0 ]
+  },
+  {
+    "Ronda": 5,
+    "Dificultad": 1,
+    "Paquetes": [ [ "normal", "normal", "normal", "normal", "normal", "normal" ] ],
+    "TimingSpawns": [ 0.0 ]
+  },
+  {
+    "Ronda": 6,
+    "Dificultad": 1,
+    "Paquetes": [ [ "rapido", "rapido", "rapido" ], [ "normal", "normal" ] ],
+    "TimingSpawns": [ 0.0, 2.0 ]
+  },
+  {
+    "Ronda": 7,
+    "Dificultad": 1,
+    "Paquetes": [ [ "lento", "normal" ], [ "lento" ] ],
+    "TimingSpawns": [ 0.0, 5.0 ]
+  },
+  {
+    "Ronda": 8,
+    "Dificultad": 1,
+    "Paquetes": [ [ "rapido", "rapido", "rapido", "rapido", "rapido" ] ],
+    "TimingSpawns": [ 0.0 ]
+  },
+  {
+    "Ronda": 9,
+    "Dificultad": 1,
+    "Paquetes": [ [ "lento" ], [ "rapido", "rapido", "rapido" ], [ "normal", "normal" ] ],
+    "TimingSpawns": [ 0.0, 3.0, 2.0 ]
+  },
+  {
+    "Ronda": 10,
+    "Dificultad": 2,
+    "Paquetes": [ [ "lento", "lento" ], [ "rapido", "rapido", "rapido", "rapido" ] ],
+    "TimingSpawns": [ 0.0, 4.0 ]
+  },
+  {
+    "Ronda": 11,
+    "Dificultad": 2,
+    "Paquetes": [ [ "normal", "normal", "normal", "normal", "normal" ], [ "rapido", "rapido" ] ],
+    "TimingSpawns": [ 0.0, 2.0 ]
+  },
+  {
+    "Ronda": 12,
+    "Dificultad": 2,
+    "Paquetes": [ [ "rapido", "rapido", "rapido", "rapido", "rapido", "rapido" ] ],
+    "TimingSpawns": [ 0.0 ]
+  },
+  {
+    "Ronda": 13,
+    "Dificultad": 2,
+    "Paquetes": [ [ "lento", "normal", "normal" ], [ "lento", "normal" ] ],
+    "TimingSpawns": [ 0.0, 4.0 ]
+  },
+  {
+    "Ronda": 14,
+    "Dificultad": 2,
+    "Paquetes": [ [ "normal", "normal", "normal" ], [ "lento", "lento" ] ],
+    "TimingSpawns": [ 0.0, 3.0 ]
+  },
+  {
+    "Ronda": 15,
+    "Dificultad": 2,
+    "Paquetes": [ [ "rapido", "rapido" ], [ "normal", "normal", "normal", "normal" ], [ "rapido", "rapido" ] ],
+    "TimingSpawns": [ 0.0, 2.0, 2.0 ]
+  },
+  {
+    "Ronda": 16,
+    "Dificultad": 2,
+    "Paquetes": [ [ "lento" ], [ "lento" ], [ "lento" ] ],
+    "TimingSpawns": [ 0.0, 3.0, 3.0 ]
+  },
+  {
+    "Ronda": 17,
+    "Dificultad": 2,
+    "Paquetes": [ [ "rapido", "normal", "rapido", "normal", "rapido", "normal" ] ],
+    "TimingSpawns": [ 0.0 ]
+  },
+  {
+    "Ronda": 18,
+    "Dificultad": 2,
+    "Paquetes": [ [ "normal", "normal", "normal", "normal", "normal", "normal", "normal", "normal" ] ],
+    "TimingSpawns": [ 0.0 ]
+  },
+  {
+    "Ronda": 19,
+    "Dificultad": 2,
+    "Paquetes": [ [ "lento", "rapido", "rapido" ], [ "lento", "rapido", "rapido" ] ],
+    "TimingSpawns": [ 0.0, 5.0 ]
+  },
+  {
+    "Ronda": 20,
+    "Dificultad": 3,
+    "Paquetes": [ [ "lento", "lento", "lento" ], [ "rapido", "rapido", "rapido", "rapido" ] ],
+    "TimingSpawns": [ 0.0, 4.0 ]
+  },
+  {
+    "Ronda": 21,
+    "Dificultad": 2,
+    "Paquetes": [ [ "rapido", "rapido", "rapido", "rapido", "rapido", "rapido", "rapido", "rapido" ] ],
+    "TimingSpawns": [ 0.0 ]
+  },
+  {
+    "Ronda": 22,
+    "Dificultad": 3,
+    "Paquetes": [ [ "normal", "normal", "normal" ], [ "lento", "lento" ] ],
+    "TimingSpawns": [ 0.0, 2.0 ]
+  },
+  {
+    "Ronda": 23,
+    "Dificultad": 3,
+    "Paquetes": [ [ "lento" ], [ "normal", "normal", "normal", "normal", "normal" ] ],
+    "TimingSpawns": [ 0.0, 3.0 ]
+  },
+  {
+    "Ronda": 24,
+    "Dificultad": 3,
+    "Paquetes": [ [ "rapido", "rapido" ], [ "rapido", "rapido" ], [ "rapido", "rapido" ], [ "rapido", "rapido" ] ],
+    "TimingSpawns": [ 0.0, 1.0, 1.0, 1.0 ]
+  },
+  {
+    "Ronda": 25,
+    "Dificultad": 3,
+    "Paquetes": [ [ "lento", "lento", "lento", "lento" ] ],
+    "TimingSpawns": [ 0.0 ]
+  },
+  {
+    "Ronda": 26,
+    "Dificultad": 3,
+    "Paquetes": [ [ "normal", "normal", "normal", "normal" ], [ "lento", "rapido", "lento" ] ],
+    "TimingSpawns": [ 0.0, 3.0 ]
+  },
+  {
+    "Ronda": 27,
+    "Dificultad": 3,
+    "Paquetes": [ [ "rapido", "rapido", "rapido", "rapido", "rapido", "rapido", "rapido", "rapido", "rapido", "rapido" ] ],
+    "TimingSpawns": [ 0.0 ]
+  },
+  {
+    "Ronda": 28,
+    "Dificultad": 3,
+    "Paquetes": [ [ "lento", "normal" ], [ "lento", "normal" ], [ "lento", "normal" ] ],
+    "TimingSpawns": [ 0.0, 3.0, 3.0 ]
+  },
+  {
+    "Ronda": 29,
+    "Dificultad": 3,
+    "Paquetes": [ [ "normal", "normal", "normal", "normal", "normal", "normal" ], [ "rapido", "rapido", "rapido", "rapido" ] ],
+    "TimingSpawns": [ 0.0, 2.0 ]
+  },
+  {
+    "Ronda": 30,
+    "Dificultad": 3,
+    "Paquetes": [ [ "lento", "lento" ], [ "rapido", "rapido", "rapido", "rapido", "rapido", "rapido" ], [ "lento", "lento" ] ],
+    "TimingSpawns": [ 0.0, 3.0, 3.0 ]
+  },
+  {
+    "Ronda": 31,
+    "Dificultad": 3,
+    "Paquetes": [ [ "rapido", "rapido", "rapido", "rapido" ], [ "rapido", "rapido", "rapido", "rapido" ], [ "rapido", "rapido", "rapido", "rapido" ] ],
+    "TimingSpawns": [ 0.0, 1.5, 1.5 ]
+  },
+  {
+    "Ronda": 32,
+    "Dificultad": 3,
+    "Paquetes": [ [ "lento", "lento", "lento", "lento", "lento" ] ],
+    "TimingSpawns": [ 0.0 ]
+  },
+  {
+    "Ronda": 33,
+    "Dificultad": 3,
+    "Paquetes": [ [ "normal", "rapido", "normal", "rapido", "normal", "rapido" ], [ "lento", "lento" ] ],
+    "TimingSpawns": [ 0.0, 3.0 ]
+  },
+  {
+    "Ronda": 34,
+    "Dificultad": 3,
+    "Paquetes": [ [ "lento" ], [ "rapido", "rapido", "rapido", "rapido", "rapido" ], [ "lento" ] ],
+    "TimingSpawns": [ 0.0, 2.0, 4.0 ]
+  },
+  {
+    "Ronda": 35,
+    "Dificultad": 3,
+    "Paquetes": [ [ "normal", "normal", "normal", "normal", "normal", "normal", "normal", "normal", "normal", "normal" ] ],
+    "TimingSpawns": [ 0.0 ]
+  },
+  {
+    "Ronda": 36,
+    "Dificultad": 3,
+    "Paquetes": [ [ "lento", "lento" ], [ "lento", "lento" ], [ "lento", "lento" ] ],
+    "TimingSpawns": [ 0.0, 4.0, 4.0 ]
+  },
+  {
+    "Ronda": 37,
+    "Dificultad": 3,
+    "Paquetes": [ [ "rapido", "rapido", "rapido", "rapido", "rapido" ], [ "rapido", "rapido", "rapido", "rapido", "rapido" ], [ "lento" ] ],
+    "TimingSpawns": [ 0.0, 1.5, 2.0 ]
+  },
+  {
+    "Ronda": 38,
+    "Dificultad": 3,
+    "Paquetes": [ [ "lento", "rapido", "lento", "rapido" ], [ "normal", "normal", "normal", "normal" ] ],
+    "TimingSpawns": [ 0.0, 3.0 ]
+  },
+  {
+    "Ronda": 39,
+    "Dificultad": 3,
+    "Paquetes": [ [ "lento", "lento", "lento" ], [ "rapido", "rapido", "rapido", "rapido", "rapido", "rapido", "rapido", "rapido" ] ],
+    "TimingSpawns": [ 0.0, 4.0 ]
+  },
+  {
+    "Ronda": 40,
+    "Dificultad": 3,
+    "Paquetes": [ [ "lento", "lento", "lento", "lento", "lento", "lento" ] ],
+    "TimingSpawns": [ 0.0 ]
+  },
+  {
+    "Ronda": 41,
+    "Dificultad": 3,
+    "Paquetes": [ [ "rapido", "rapido", "rapido", "rapido", "rapido", "rapido", "rapido", "rapido", "rapido", "rapido" ] ],
+    "TimingSpawns": [ 0.0 ]
+  },
+  {
+    "Ronda": 42,
+    "Dificultad": 3,
+    "Paquetes": [ [ "lento", "normal" ], [ "lento", "normal" ], [ "lento", "normal" ], [ "lento", "normal" ] ],
+    "TimingSpawns": [ 0.0, 2.0, 2.0, 2.0 ]
+  },
+  {
+    "Ronda": 43,
+    "Dificultad": 3,
+    "Paquetes": [ [ "normal", "normal", "normal", "normal", "normal" ], [ "lento", "lento", "lento" ], [ "rapido", "rapido", "rapido" ] ],
+    "TimingSpawns": [ 0.0, 2.0, 2.0 ]
+  },
+  {
+    "Ronda": 44,
+    "Dificultad": 3,
+    "Paquetes": [ [ "lento" ], [ "rapido", "rapido", "rapido", "rapido", "rapido" ], [ "lento" ], [ "rapido", "rapido", "rapido" ] ],
+    "TimingSpawns": [ 0.0, 1.5, 3.0, 1.5 ]
+  },
+  {
+    "Ronda": 45,
+    "Dificultad": 3,
+    "Paquetes": [ [ "lento", "lento", "lento", "lento", "lento", "lento", "lento", "lento" ] ],
+    "TimingSpawns": [ 0.0 ]
+  },
+  {
+    "Ronda": 46,
+    "Dificultad": 3,
+    "Paquetes": [ [ "rapido", "rapido", "rapido", "rapido" ], [ "rapido", "rapido", "rapido", "rapido" ], [ "rapido", "rapido", "rapido", "rapido" ], [ "lento", "lento" ] ],
+    "TimingSpawns": [ 0.0, 1.0, 1.0, 2.0 ]
+  },
+  {
+    "Ronda": 47,
+    "Dificultad": 3,
+    "Paquetes": [ [ "lento", "lento", "normal", "normal", "lento", "lento" ] ],
+    "TimingSpawns": [ 0.0 ]
+  },
+  {
+    "Ronda": 48,
+    "Dificultad": 3,
+    "Paquetes": [ [ "rapido", "rapido", "rapido", "rapido", "rapido", "rapido", "rapido", "rapido", "rapido", "rapido", "rapido", "rapido" ] ],
+    "TimingSpawns": [ 0.0 ]
+  },
+  {
+    "Ronda": 49,
+    "Dificultad": 3,
+    "Paquetes": [ [ "lento", "lento", "lento" ], [ "lento", "lento", "lento" ], [ "lento", "lento", "lento" ] ],
+    "TimingSpawns": [ 0.0, 4.0, 4.0 ]
+  },
+  {
+    "Ronda": 50,
+    "Dificultad": 3,
+    "Paquetes": [ [ "lento", "lento", "lento" ], [ "rapido", "rapido", "rapido", "rapido", "rapido" ], [ "normal", "normal", "normal", "normal", "normal" ], [ "lento", "lento", "lento", "lento" ], [ "rapido", "rapido", "rapido", "rapido", "rapido", "rapido", "rapido" ] ],
+    "TimingSpawns": [ 0.0, 3.0, 2.0, 5.0, 2.0 ]
+  }
+]

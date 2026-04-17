@@ -1,0 +1,15 @@
+# Godot 4 specific
+.godot/
+.import/
+export_presets.cfg
+
+# C# / .NET specific
+bin/
+obj/
+*.sln
+*.csproj
+*.csproj.html
+
+# General
+.vscode/
+*.tmp

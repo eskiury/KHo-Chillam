@@ -1,0 +1,135 @@
+[gd_scene load_steps=6 format=3 uid="uid://jq2qg66l74q"]
+
+[ext_resource type="Script" uid="uid://xvn5yu23xe1f" path="res://Scripts/Shop/Hotbar.cs" id="1_cpbal"]
+[ext_resource type="Texture2D" uid="uid://jwqgcw5e7e4d" path="res://resources/Icons/Double/button_round_line.png" id="2_6pbsj"]
+[ext_resource type="PackedScene" uid="uid://behu1u6ltl60v" path="res://Scenes/Shop/item_button.tscn" id="2_a87cu"]
+[ext_resource type="Texture2D" uid="uid://ce2i2k7cy2qvc" path="res://resources/Icons/Double/button_round_flat.png" id="3_meg5r"]
+[ext_resource type="Texture2D" uid="uid://bcdbd46djfltx" path="res://resources/Icons/Double/button_round_depth_line.png" id="4_rvd3k"]
+
+[node name="Hotbar" type="Control" node_paths=PackedStringArray("priceLabel", "buttonFather")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_cpbal")
+towerPrice = 50
+towerSellPrice = 25
+priceLabel = NodePath("MarginContainer/MarginContainer/Button/Label2")
+buttonFather = NodePath("MarginContainer/GridContainer/ContenedorHotbar")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_bottom = 15
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_bottom = 64
+
+[node name="Button" type="TextureButton" parent="MarginContainer/MarginContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(192, 192)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+action_mode = 0
+texture_normal = ExtResource("4_rvd3k")
+texture_pressed = ExtResource("3_meg5r")
+texture_hover = ExtResource("2_6pbsj")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="MarginContainer/MarginContainer/Button"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.0
+offset_top = -25.32
+offset_right = 47.0
+offset_bottom = 11.180038
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.09239707, 0.09239706, 0.09239706, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.16862746)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 20
+text = "SUMMON MASK
+"
+
+[node name="Label2" type="Label" parent="MarginContainer/MarginContainer/Button"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.0
+offset_top = -1.4150009
+offset_right = 47.0
+offset_bottom = 35.08499
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.09239707, 0.09239706, 0.09239706, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.16862746)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 21
+text = "0000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+mouse_filter = 2
+columns = 2
+
+[node name="ContenedorHotbar" type="GridContainer" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+columns = 10
+
+[node name="ItemButton" parent="MarginContainer/GridContainer/ContenedorHotbar" instance=ExtResource("2_a87cu")]
+layout_mode = 2
+
+[node name="ItemButton2" parent="MarginContainer/GridContainer/ContenedorHotbar" instance=ExtResource("2_a87cu")]
+layout_mode = 2
+
+[node name="ItemButton3" parent="MarginContainer/GridContainer/ContenedorHotbar" instance=ExtResource("2_a87cu")]
+layout_mode = 2
+
+[node name="ItemButton4" parent="MarginContainer/GridContainer/ContenedorHotbar" instance=ExtResource("2_a87cu")]
+layout_mode = 2
+
+[node name="ItemButton5" parent="MarginContainer/GridContainer/ContenedorHotbar" instance=ExtResource("2_a87cu")]
+layout_mode = 2
+
+[node name="ItemButton6" parent="MarginContainer/GridContainer/ContenedorHotbar" instance=ExtResource("2_a87cu")]
+layout_mode = 2
+
+[node name="ItemButton7" parent="MarginContainer/GridContainer/ContenedorHotbar" instance=ExtResource("2_a87cu")]
+layout_mode = 2
+
+[node name="ItemButton8" parent="MarginContainer/GridContainer/ContenedorHotbar" instance=ExtResource("2_a87cu")]
+layout_mode = 2
+
+[node name="ItemButton9" parent="MarginContainer/GridContainer/ContenedorHotbar" instance=ExtResource("2_a87cu")]
+layout_mode = 2
+
+[node name="ItemButton10" parent="MarginContainer/GridContainer/ContenedorHotbar" instance=ExtResource("2_a87cu")]
+layout_mode = 2
+
+[connection signal="pressed" from="MarginContainer/MarginContainer/Button" to="." method="pressPurchase"]

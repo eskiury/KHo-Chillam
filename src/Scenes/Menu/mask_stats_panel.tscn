@@ -1,0 +1,191 @@
+[gd_scene load_steps=7 format=3 uid="uid://066a3wlvjgag"]
+
+[ext_resource type="Texture2D" uid="uid://bl381xpsa12cn" path="res://resources/Icons/Double/check_square_grey_cross.png" id="1_0lk2s"]
+[ext_resource type="Script" uid="uid://chjy5vlwbdt5" path="res://Scripts/Menu/MaskStatsPanel.cs" id="1_sd1t7"]
+[ext_resource type="Texture2D" uid="uid://ckaiaxvjilpqq" path="res://resources/Icons/Double/button_rectangle_depth_border.png" id="2_8it00"]
+[ext_resource type="Texture2D" uid="uid://3ixyl1okwg1g" path="res://resources/Icons/Double/button_rectangle_border.png" id="2_bcaoc"]
+[ext_resource type="Texture2D" uid="uid://5wpdcss5u8ta" path="res://resources/Icons/Double/button_rectangle_depth_flat.png" id="3_mk4u6"]
+[ext_resource type="Texture2D" uid="uid://cqe802dp20aip" path="res://resources/Icons/Double/check_square_color_cross.png" id="3_xtfor"]
+
+[node name="MaskStatsPanel" type="Control" node_paths=PackedStringArray("MachineLabel", "LevelLabel", "DamageLabel", "AttackCooldownLabel", "AttackRadiusLabel", "CloseButton", "PickUpButton")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sd1t7")
+MachineLabel = NodePath("PanelContainer/MarginContainer/VBoxContainer/LabelList/MarginContainer/VBoxContainer/NameLabel")
+LevelLabel = NodePath("PanelContainer/MarginContainer/VBoxContainer/LabelList/MarginContainer4/VBoxContainer/LebelLabel")
+DamageLabel = NodePath("PanelContainer/MarginContainer/VBoxContainer/LabelList/MarginContainer2/VBoxContainer/DamageLabel")
+AttackCooldownLabel = NodePath("PanelContainer/MarginContainer/VBoxContainer/LabelList/MarginContainer3/VBoxContainer/CooldownLabel")
+AttackRadiusLabel = NodePath("PanelContainer/MarginContainer/VBoxContainer/LabelList/MarginContainer5/VBoxContainer/RadiusLabel")
+CloseButton = NodePath("PanelContainer/MarginContainer/VBoxContainer/ClosePanelButton")
+PickUpButton = NodePath("PanelContainer/MarginContainer/VBoxContainer/MarginContainer/PickUpButton")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="ClosePanelButton" type="TextureButton" parent="PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+texture_normal = ExtResource("1_0lk2s")
+texture_pressed = ExtResource("3_xtfor")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="LabelList" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/LabelList"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/LabelList/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/LabelList/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Name:"
+horizontal_alignment = 1
+
+[node name="NameLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/LabelList/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Placeholder"
+horizontal_alignment = 1
+
+[node name="MarginContainer4" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/LabelList"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/LabelList/MarginContainer4"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/LabelList/MarginContainer4/VBoxContainer"]
+layout_mode = 2
+text = "Level:"
+horizontal_alignment = 1
+
+[node name="LebelLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/LabelList/MarginContainer4/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Placeholder"
+horizontal_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/LabelList"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/LabelList/MarginContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/LabelList/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Damage:"
+horizontal_alignment = 1
+
+[node name="DamageLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/LabelList/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Placeholder"
+horizontal_alignment = 1
+
+[node name="MarginContainer3" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/LabelList"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/LabelList/MarginContainer3"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/LabelList/MarginContainer3/VBoxContainer"]
+layout_mode = 2
+text = "Attack cooldown:"
+horizontal_alignment = 1
+
+[node name="CooldownLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/LabelList/MarginContainer3/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Placeholder"
+horizontal_alignment = 1
+
+[node name="MarginContainer5" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/LabelList"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/LabelList/MarginContainer5"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/LabelList/MarginContainer5/VBoxContainer"]
+layout_mode = 2
+text = "Attack radius:"
+horizontal_alignment = 1
+
+[node name="RadiusLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/LabelList/MarginContainer5/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Placeholder"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 25
+
+[node name="PickUpButton" type="TextureButton" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("2_bcaoc")
+texture_pressed = ExtResource("3_mk4u6")
+texture_hover = ExtResource("2_8it00")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/PickUpButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0.44705883, 0, 1)
+text = "Pickup mask"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/ClosePanelButton" to="." method="OnCloseButtonPressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/PickUpButton" to="." method="OnPickUpButtonPressed"]

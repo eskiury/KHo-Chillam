@@ -1,0 +1,51 @@
+[gd_scene load_steps=10 format=3 uid="uid://mxq2uvj2517h"]
+
+[ext_resource type="Script" uid="uid://b3wbq562y2rwd" path="res://Scripts/Game/Projectile/ReboundProjectile.cs" id="1_7m3li"]
+[ext_resource type="AudioStream" uid="uid://cwqbegxlfvnvn" path="res://resources/Music/hit_ice.ogg" id="2_sumvt"]
+[ext_resource type="AudioStream" uid="uid://b25esiuqkq25t" path="res://resources/Music/hit_fire.ogg" id="3_3cxbn"]
+[ext_resource type="AudioStream" uid="uid://c6nts4t75h733" path="res://resources/Music/hit_poison.ogg" id="4_4nwww"]
+[ext_resource type="AudioStream" uid="uid://b1ykpqg6mmftf" path="res://resources/Music/hit_normal.ogg" id="5_v4caf"]
+[ext_resource type="PackedScene" uid="uid://cyki342q7sf7h" path="res://Scenes/Game/VFX/sm_rebound.tscn" id="6_3cxbn"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_lon8c"]
+radius = 0.1
+height = 0.2
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_lon8c"]
+radius = 0.3
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_csatv"]
+radius = 3.0
+
+[node name="projectileRebound_scene" type="Node3D" node_paths=PackedStringArray("PosibleReboundArea", "actualShaderRebound", "areaCollisionProjectile")]
+script = ExtResource("1_7m3li")
+ReboundQuantity = 5
+PosibleReboundArea = NodePath("ReboundArea3D")
+actualShaderRebound = NodePath("Rebound")
+Speed = 20.0
+SecundaryEffect = 3
+SFXhielo = ExtResource("2_sumvt")
+SFXfuego = ExtResource("3_3cxbn")
+SFXpoison = ExtResource("4_4nwww")
+SFXnormal = ExtResource("5_v4caf")
+areaCollisionProjectile = NodePath("Area3D")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("SphereMesh_lon8c")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_lon8c")
+
+[node name="ReboundArea3D" type="Area3D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ReboundArea3D"]
+shape = SubResource("SphereShape3D_csatv")
+
+[node name="Rebound" parent="." instance=ExtResource("6_3cxbn")]
+
+[connection signal="body_entered" from="Area3D" to="." method="OnBodyEntered"]

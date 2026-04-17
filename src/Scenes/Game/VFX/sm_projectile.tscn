@@ -1,0 +1,136 @@
+[gd_scene load_steps=19 format=3 uid="uid://x6ilq377v77h"]
+
+[ext_resource type="Script" uid="uid://c7jtbw1howup6" path="res://Scripts/VFX/Scripts/SmProjectile.cs" id="1_115wo"]
+[ext_resource type="Shader" uid="uid://8kbtiqiruyr6" path="res://Scripts/VFX/M_ProjectileShader.tres" id="1_cgkud"]
+[ext_resource type="Texture2D" uid="uid://c0o7j4c2w64os" path="res://Scripts/VFX/Textures/T_Voronoi.png" id="2_115wo"]
+[ext_resource type="Texture2D" uid="uid://byleuv4l8xd8" path="res://Scripts/VFX/Textures/T_AlphaTextureVar.png" id="3_nmii4"]
+[ext_resource type="Texture2D" uid="uid://pkbhghenuurn" path="res://Scripts/VFX/Textures/T_Flare.PNG" id="4_2odt7"]
+[ext_resource type="Texture2D" uid="uid://c0fw5blr04m5g" path="res://Scripts/VFX/Textures/T_SkullTrail.png" id="5_gv0tt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nph4v"]
+render_priority = 0
+shader = ExtResource("1_cgkud")
+shader_parameter/Color1 = Color(1.7602391, 0.5514883, 0, 1)
+shader_parameter/Panneo = Vector2(0.5, 1)
+shader_parameter/MainTexture = ExtResource("2_115wo")
+shader_parameter/Power = 2.0
+shader_parameter/Multiplier = 1.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0te4d"]
+gravity = Vector3(0, 0, 0)
+scale_min = 5.0
+scale_max = 5.0
+color = Color(5, 2, 1, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_nph4v"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_exctt"]
+render_priority = 0
+shader = ExtResource("1_cgkud")
+shader_parameter/Color1 = Color(1.7602391, 0, 0, 1)
+shader_parameter/Panneo = Vector2(-0.5, 1)
+shader_parameter/MainTexture = ExtResource("3_nmii4")
+shader_parameter/Power = 1.0
+shader_parameter/Multiplier = 1.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dn2ix"]
+gravity = Vector3(0, 0, 0)
+scale_min = 4.7999997
+scale_max = 4.7999997
+color = Color(5, 2, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ehpn"]
+transparency = 1
+no_depth_test = true
+albedo_color = Color(0.04082678, 0.040826827, 0, 1)
+albedo_texture = ExtResource("4_2odt7")
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fcnuk"]
+gravity = Vector3(0, 0, 0)
+scale_min = 30.0
+scale_max = 30.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_efh3n"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0te4d"]
+render_priority = 0
+shader = ExtResource("1_cgkud")
+shader_parameter/Color1 = Color(0, 0, 0, 1)
+shader_parameter/Panneo = Vector2(-0.6, 0)
+shader_parameter/MainTexture = ExtResource("5_gv0tt")
+shader_parameter/Power = 5.0
+shader_parameter/Multiplier = 2.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0ehpn"]
+gravity = Vector3(0, 0, 0)
+scale_min = 5.0
+scale_max = 5.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_exctt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dn2ix"]
+render_priority = 0
+shader = ExtResource("1_cgkud")
+shader_parameter/Color1 = Color(0, 0, 0, 1)
+shader_parameter/Panneo = Vector2(-1.2, 0)
+shader_parameter/MainTexture = ExtResource("5_gv0tt")
+shader_parameter/Power = 5.0
+shader_parameter/Multiplier = 2.0
+
+[node name="SM_Projectile" type="Node3D" node_paths=PackedStringArray("OuterAura", "InnerAura", "TrailVertical", "TrailVertical2")]
+transform = Transform3D(0.05, 0, 0, 0, -0.05, -4.371139e-09, 0, 4.371139e-09, -0.05, 0.002, -0.033, -0.018)
+script = ExtResource("1_115wo")
+OuterAura = NodePath("OuterAura")
+InnerAura = NodePath("InnerAura")
+TrailVertical = NodePath("TrailVertical")
+TrailVertical2 = NodePath("TrailVertical2")
+
+[node name="OuterAura" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.56881046, -0.4024253, -0.4409237)
+material_override = SubResource("ShaderMaterial_nph4v")
+amount = 1
+fixed_fps = 60
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_0te4d")
+draw_pass_1 = SubResource("SphereMesh_nph4v")
+
+[node name="InnerAura" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.56881046, -0.4024253, -0.4409237)
+sorting_offset = -1.0
+material_override = SubResource("ShaderMaterial_exctt")
+amount = 1
+fixed_fps = 60
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_dn2ix")
+draw_pass_1 = SubResource("SphereMesh_nph4v")
+
+[node name="Dot" type="GPUParticles3D" parent="."]
+visible = false
+sorting_offset = -2.0
+material_override = SubResource("StandardMaterial3D_0ehpn")
+amount = 1
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_fcnuk")
+draw_pass_1 = SubResource("QuadMesh_efh3n")
+
+[node name="TrailVertical" type="GPUParticles3D" parent="."]
+transform = Transform3D(0.09034582, 0, 1.0223055, 0, 2.047858, 0, -2.8812575, 0, 0.032055784, 0, -0.119199276, -8.110163)
+sorting_offset = -2.0
+material_override = SubResource("ShaderMaterial_0te4d")
+amount = 1
+fixed_fps = 60
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_0ehpn")
+draw_pass_1 = SubResource("QuadMesh_exctt")
+
+[node name="TrailVertical2" type="GPUParticles3D" parent="."]
+transform = Transform3D(-0.0022603779, -1.7277459, -0.02989515, 0.090994, -0.042919125, 1.203459, -2.902824, -3.0492733e-10, 0.037747737, 0, -0.119199276, -8.110163)
+sorting_offset = -2.0
+material_override = SubResource("ShaderMaterial_dn2ix")
+amount = 1
+fixed_fps = 60
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_0ehpn")
+draw_pass_1 = SubResource("QuadMesh_exctt")

@@ -1,0 +1,72 @@
+[gd_scene load_steps=3 format=3 uid="uid://1e5tp52rlxdp"]
+
+[ext_resource type="Script" uid="uid://b3armx6d7apd0" path="res://Scripts/Menu/EndPanel.cs" id="1_u4c3y"]
+[ext_resource type="Texture2D" uid="uid://dgwjhgos4e6ph" path="res://resources/Icons/MasksIcons/hanRobaoPNG.png" id="2_b4vhs"]
+
+[node name="GameOver" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u4c3y")
+
+[node name="GameOverPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.13194445
+anchor_top = 0.09876543
+anchor_right = 0.8611111
+anchor_bottom = 0.83950615
+offset_bottom = -3.0517578e-05
+metadata/_edit_use_anchors_ = true
+
+[node name="foto" type="TextureRect" parent="GameOverPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.21904762
+anchor_top = 0.116666675
+anchor_right = 0.7714286
+anchor_bottom = 0.9795812
+texture = ExtResource("2_b4vhs")
+expand_mode = 5
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="ButtonGO" type="Button" parent="GameOverPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.047619045
+anchor_top = 0.68333334
+anchor_right = 0.4315476
+anchor_bottom = 0.91004145
+offset_top = -1.5258789e-05
+text = "MENU"
+metadata/_edit_use_anchors_ = true
+
+[node name="ReiniciarRondas" type="Button" parent="GameOverPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5809524
+anchor_top = 0.68333334
+anchor_right = 0.94255954
+anchor_bottom = 0.9007246
+offset_left = 1.5258789e-05
+text = "REINICIAR"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="GameOverPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3809524
+anchor_top = 0.13333334
+anchor_right = 0.59761906
+anchor_bottom = 0.24965277
+theme_override_font_sizes/font_size = 40
+text = "PERDISTE"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="GameOverPanel/ButtonGO" to="." method="OnBotonVolverAlMenuPressed"]
+[connection signal="pressed" from="GameOverPanel/ReiniciarRondas" to="." method="OnBotonReiniciarNivelPressed"]

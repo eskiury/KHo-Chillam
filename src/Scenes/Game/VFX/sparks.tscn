@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://bltj5cbypuovv"]
+
+[ext_resource type="Shader" uid="uid://cagrkssd744oh" path="res://Scripts/VFX/mascaras.tres" id="1_4haj3"]
+[ext_resource type="Texture2D" uid="uid://pkbhghenuurn" path="res://Scripts/VFX/Textures/T_Flare.PNG" id="2_23ejw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0ehpn"]
+render_priority = 0
+shader = ExtResource("1_4haj3")
+shader_parameter/Color = Color(3.1466594, 0.31951818, 0, 1)
+shader_parameter/Text = ExtResource("2_23ejw")
+shader_parameter/ColorFresnel = Color(0, 0, 0, 1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fcnuk"]
+particle_flag_align_y = true
+direction = Vector3(0, 0, 1)
+spread = 10.0
+initial_velocity_min = 5.0
+initial_velocity_max = 8.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.049999997
+scale_max = 0.29999998
+
+[sub_resource type="QuadMesh" id="QuadMesh_efh3n"]
+size = Vector2(0.5, 2)
+
+[node name="Sparks" type="GPUParticles3D"]
+material_override = SubResource("ShaderMaterial_0ehpn")
+amount = 20
+lifetime = 0.3
+explosiveness = 0.7
+randomness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_fcnuk")
+draw_pass_1 = SubResource("QuadMesh_efh3n")

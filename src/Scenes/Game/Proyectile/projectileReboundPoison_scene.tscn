@@ -1,0 +1,49 @@
+[gd_scene load_steps=10 format=3 uid="uid://ca7eqxfff35r"]
+
+[ext_resource type="Script" uid="uid://b3wbq562y2rwd" path="res://Scripts/Game/Projectile/ReboundProjectile.cs" id="1_w3362"]
+[ext_resource type="AudioStream" uid="uid://cwqbegxlfvnvn" path="res://resources/Music/hit_ice.ogg" id="2_r5qse"]
+[ext_resource type="AudioStream" uid="uid://b25esiuqkq25t" path="res://resources/Music/hit_fire.ogg" id="3_mb3wn"]
+[ext_resource type="AudioStream" uid="uid://c6nts4t75h733" path="res://resources/Music/hit_poison.ogg" id="4_mihol"]
+[ext_resource type="AudioStream" uid="uid://b1ykpqg6mmftf" path="res://resources/Music/hit_normal.ogg" id="5_232th"]
+[ext_resource type="PackedScene" uid="uid://cyki342q7sf7h" path="res://Scenes/Game/VFX/sm_rebound.tscn" id="6_mb3wn"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_lon8c"]
+radius = 0.1
+height = 0.2
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_lon8c"]
+radius = 0.3
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_csatv"]
+radius = 3.0
+
+[node name="projectileRebound_scene" type="Node3D" node_paths=PackedStringArray("PosibleReboundArea", "actualShaderRebound", "areaCollisionProjectile")]
+script = ExtResource("1_w3362")
+ReboundQuantity = 5
+PosibleReboundArea = NodePath("ReboundArea3D")
+actualShaderRebound = NodePath("Rebound")
+Speed = 20.0
+SecundaryEffect = 2
+SFXhielo = ExtResource("2_r5qse")
+SFXfuego = ExtResource("3_mb3wn")
+SFXpoison = ExtResource("4_mihol")
+SFXnormal = ExtResource("5_232th")
+areaCollisionProjectile = NodePath("Area3D")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("SphereMesh_lon8c")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_lon8c")
+
+[node name="ReboundArea3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ReboundArea3D"]
+shape = SubResource("SphereShape3D_csatv")
+
+[node name="Rebound" parent="." instance=ExtResource("6_mb3wn")]
+
+[connection signal="body_entered" from="Area3D" to="." method="OnBodyEntered"]

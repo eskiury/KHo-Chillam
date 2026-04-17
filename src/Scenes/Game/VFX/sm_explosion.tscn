@@ -1,0 +1,125 @@
+[gd_scene load_steps=13 format=3 uid="uid://x2rk2ouqbmrt"]
+
+[ext_resource type="Script" uid="uid://mf8fu3ao7he7" path="res://Scripts/VFX/Scripts/SmExplosion.cs" id="1_7vh0q"]
+[ext_resource type="Shader" uid="uid://dy8ykihvevwnh" path="res://Scripts/VFX/M_Trail.tres" id="1_sarmq"]
+[ext_resource type="ArrayMesh" uid="uid://cugi4glmeblwl" path="res://Scripts/VFX/Meshes/cloud.obj" id="2_7vh0q"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e3n88"]
+albedo_color = Color(0.2497904, 0.16292718, 0.058972135, 1)
+emission_enabled = true
+emission = Color(0.7019608, 0.15294118, 0, 1)
+emission_energy_multiplier = 1.75
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hrgg6"]
+particle_flag_align_y = true
+spread = 180.0
+initial_velocity_min = 15.0
+initial_velocity_max = 18.0
+scale_min = 0.049999997
+scale_max = 0.84999996
+
+[sub_resource type="PrismMesh" id="PrismMesh_4a8rk"]
+size = Vector3(0.15, 0.4, 0.07)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0te4d"]
+render_priority = 0
+shader = ExtResource("1_sarmq")
+shader_parameter/Color1 = Color(0, 0, 0, 0.5921569)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_exctt"]
+emission_shape = 1
+emission_sphere_radius = 1.0
+angle_min = -720.0
+angle_max = 720.0
+spread = 180.0
+initial_velocity_min = 5.0
+initial_velocity_max = 15.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.29999998
+scale_max = 1.25
+turbulence_noise_strength = 16.35
+turbulence_noise_scale = 1.63
+turbulence_noise_speed_random = 3.25
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dn2ix"]
+render_priority = 0
+shader = ExtResource("1_sarmq")
+shader_parameter/Color1 = Color(1.6255223, 0.28872544, 0.09509279, 0.8666667)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0ehpn"]
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 5.0
+initial_velocity_max = 9.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.25
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fcnuk"]
+render_priority = 0
+shader = ExtResource("1_sarmq")
+shader_parameter/Color1 = Color(1.0881988, 0.83748335, 0.098085165, 0.6509804)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_efh3n"]
+spread = 180.0
+initial_velocity_min = 5.0
+initial_velocity_max = 9.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.25
+
+[node name="Explosion" type="Node3D" node_paths=PackedStringArray("Debris", "SmokeMesh", "Fire", "Ember")]
+script = ExtResource("1_7vh0q")
+Debris = NodePath("Debris")
+SmokeMesh = NodePath("SmokeMesh")
+Fire = NodePath("Fire")
+Ember = NodePath("Ember")
+
+[node name="Debris" type="GPUParticles3D" parent="."]
+material_override = SubResource("StandardMaterial3D_e3n88")
+emitting = false
+amount = 30
+lifetime = 0.3
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_hrgg6")
+draw_pass_1 = SubResource("PrismMesh_4a8rk")
+
+[node name="SmokeMesh" type="GPUParticles3D" parent="."]
+sorting_offset = -4.0
+material_override = SubResource("ShaderMaterial_0te4d")
+emitting = false
+amount = 50
+lifetime = 0.3
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+fixed_fps = 60
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_exctt")
+draw_pass_1 = ExtResource("2_7vh0q")
+
+[node name="Fire" type="GPUParticles3D" parent="."]
+sorting_offset = -2.0
+material_override = SubResource("ShaderMaterial_dn2ix")
+emitting = false
+amount = 50
+lifetime = 0.3
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_0ehpn")
+draw_pass_1 = ExtResource("2_7vh0q")
+
+[node name="Ember" type="GPUParticles3D" parent="."]
+sorting_offset = -1.0
+material_override = SubResource("ShaderMaterial_fcnuk")
+emitting = false
+amount = 50
+lifetime = 0.3
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_efh3n")
+draw_pass_1 = ExtResource("2_7vh0q")

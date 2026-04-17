@@ -1,0 +1,37 @@
+[gd_scene load_steps=9 format=3 uid="uid://blfnayu3crxuq"]
+
+[ext_resource type="Script" uid="uid://dqqff35xbu4pe" path="res://Scripts/Game/Projectile/DirectProjectile.cs" id="1_qd7vg"]
+[ext_resource type="AudioStream" uid="uid://cwqbegxlfvnvn" path="res://resources/Music/hit_ice.ogg" id="2_ifo84"]
+[ext_resource type="AudioStream" uid="uid://b25esiuqkq25t" path="res://resources/Music/hit_fire.ogg" id="3_dy7qt"]
+[ext_resource type="AudioStream" uid="uid://c6nts4t75h733" path="res://resources/Music/hit_poison.ogg" id="4_2duvq"]
+[ext_resource type="AudioStream" uid="uid://b1ykpqg6mmftf" path="res://resources/Music/hit_normal.ogg" id="5_td15q"]
+[ext_resource type="PackedScene" uid="uid://x6ilq377v77h" path="res://Scenes/Game/VFX/sm_projectile.tscn" id="6_dy7qt"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_lon8c"]
+radius = 0.1
+height = 0.2
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_lon8c"]
+radius = 0.3
+
+[node name="projectileDirect_scene" type="Node3D" node_paths=PackedStringArray("actualShader")]
+script = ExtResource("1_qd7vg")
+actualShader = NodePath("SM_Projectile")
+SecundaryEffect = 3
+SFXhielo = ExtResource("2_ifo84")
+SFXfuego = ExtResource("3_dy7qt")
+SFXpoison = ExtResource("4_2duvq")
+SFXnormal = ExtResource("5_td15q")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("SphereMesh_lon8c")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_lon8c")
+
+[node name="SM_Projectile" parent="." instance=ExtResource("6_dy7qt")]
+
+[connection signal="body_entered" from="Area3D" to="." method="OnBodyEntered"]

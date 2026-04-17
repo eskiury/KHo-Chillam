@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://bgcumo08p7b50"]
+
+[ext_resource type="Script" uid="uid://cm5pbfbc6bkg1" path="res://Scripts/VFX/Scripts/RootMascaras.cs" id="1_c6etk"]
+[ext_resource type="Shader" uid="uid://cagrkssd744oh" path="res://Scripts/VFX/mascaras.tres" id="2_6rcvt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3vo8s"]
+render_priority = 0
+shader = ExtResource("2_6rcvt")
+shader_parameter/Color = Color(2.1074393, 0.9258443, 0.17026664, 0.19607843)
+shader_parameter/ColorFresnel = Color(1.4160296, 0.04342554, 0, 0.96862745)
+
+[node name="RootMascaras" type="Node3D" node_paths=PackedStringArray("Mask1", "Mask2", "Mask3", "Root")]
+script = ExtResource("1_c6etk")
+OrbitSpeed = 50.0
+SelfRotationSpeed = 120.0
+Mask1 = NodePath("RootMascara1/MeshInstance3D")
+Mask2 = NodePath("RootMascara2/MeshInstance3D")
+Mask3 = NodePath("RootMascara3/MeshInstance3D")
+Root = NodePath(".")
+
+[node name="RootMascara1" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RootMascara1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
+material_override = SubResource("ShaderMaterial_3vo8s")
+
+[node name="RootMascara2" type="Node3D" parent="."]
+transform = Transform3D(-0.50000006, 0, 0.8660254, 0, 1, 0, -0.8660254, 0, -0.50000006, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RootMascara2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
+
+[node name="RootMascara3" type="Node3D" parent="."]
+transform = Transform3D(-0.4999999, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, -0.4999999, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RootMascara3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)

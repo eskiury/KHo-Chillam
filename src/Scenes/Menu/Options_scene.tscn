@@ -1,0 +1,42 @@
+[gd_scene load_steps=2 format=3 uid="uid://c825ekrtd4d68"]
+
+[ext_resource type="Script" uid="uid://dt70dxe2d3axc" path="res://Scripts/Menu/Options.cs" id="1_pogs8"]
+
+[node name="OptionsScene" type="Control" node_paths=PackedStringArray("VolumeSlider", "BackButton")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pogs8")
+VolumeSlider = NodePath("PanelContainer/VBoxContainer/VolumenSlider")
+BackButton = NodePath("PanelContainer/VBoxContainer/BackButton")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 193.0
+offset_top = 231.0
+offset_right = 1006.0
+offset_bottom = 377.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="LabelVolumen" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "VOLUMEN
+"
+horizontal_alignment = 1
+
+[node name="VolumenSlider" type="HSlider" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Volver
+"

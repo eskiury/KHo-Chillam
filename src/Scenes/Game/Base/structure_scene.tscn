@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://bqnfafy0gmwvo"]
+
+[ext_resource type="Script" uid="uid://dv6uwgxvkg3ii" path="res://Scripts/Game/Base/StructureClass.cs" id="1_bx4hh"]
+[ext_resource type="PackedScene" uid="uid://ca7eqxfff35r" path="res://Scenes/Game/Proyectile/projectileReboundPoison_scene.tscn" id="2_3wis7"]
+[ext_resource type="AudioStream" uid="uid://b1ykpqg6mmftf" path="res://resources/Music/hit_normal.ogg" id="3_3wis7"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_oeb2t"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_bx4hh"]
+radius = 5.0
+
+[node name="Structure" type="Node3D" node_paths=PackedStringArray("_Area", "_Cannon")]
+script = ExtResource("1_bx4hh")
+_ProjectileScene = ExtResource("2_3wis7")
+_Area = NodePath("MeshInstance3D/Area3D")
+_Cannon = NodePath("Marker3D")
+AttackDamage = 1
+SFXnormal = ExtResource("3_3wis7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_oeb2t")
+
+[node name="Area3D" type="Area3D" parent="MeshInstance3D"]
+input_ray_pickable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/Area3D"]
+shape = SubResource("CylinderShape3D_bx4hh")
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1168945, 0)
+
+[connection signal="body_entered" from="MeshInstance3D/Area3D" to="." method="onBodySpoted"]
+[connection signal="body_exited" from="MeshInstance3D/Area3D" to="." method="onBodyExited"]

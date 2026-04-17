@@ -1,0 +1,32 @@
+[gd_scene load_steps=8 format=3 uid="uid://b2st0uxk5q54a"]
+
+[ext_resource type="Script" uid="uid://b3icjfcb4jsqk" path="res://Scripts/Game/Base/ProjectileClass.cs" id="1_lon8c"]
+[ext_resource type="AudioStream" uid="uid://cwqbegxlfvnvn" path="res://resources/Music/hit_ice.ogg" id="2_8ekyi"]
+[ext_resource type="AudioStream" uid="uid://b25esiuqkq25t" path="res://resources/Music/hit_fire.ogg" id="3_n15yp"]
+[ext_resource type="AudioStream" uid="uid://c6nts4t75h733" path="res://resources/Music/hit_poison.ogg" id="4_etb8o"]
+[ext_resource type="AudioStream" uid="uid://b1ykpqg6mmftf" path="res://resources/Music/hit_normal.ogg" id="5_2f8x8"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_lon8c"]
+radius = 0.1
+height = 0.2
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_lon8c"]
+radius = 0.3
+
+[node name="projectile_scene" type="Node3D" node_paths=PackedStringArray("areaCollisionProjectile")]
+script = ExtResource("1_lon8c")
+SFXhielo = ExtResource("2_8ekyi")
+SFXfuego = ExtResource("3_n15yp")
+SFXpoison = ExtResource("4_etb8o")
+SFXnormal = ExtResource("5_2f8x8")
+areaCollisionProjectile = NodePath("Area3D")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_lon8c")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_lon8c")
+
+[connection signal="body_entered" from="Area3D" to="." method="OnBodyEntered"]

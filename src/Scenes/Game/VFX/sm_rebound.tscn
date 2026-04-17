@@ -1,0 +1,100 @@
+[gd_scene load_steps=15 format=3 uid="uid://cyki342q7sf7h"]
+
+[ext_resource type="Script" uid="uid://ckui1pbcowvtx" path="res://Scripts/VFX/Scripts/SmRebound.cs" id="1_j8s3o"]
+[ext_resource type="Shader" uid="uid://d1swogf4p61ij" path="res://Scripts/VFX/HitSlash.tres" id="1_v60a7"]
+[ext_resource type="Texture2D" uid="uid://c0o7j4c2w64os" path="res://Scripts/VFX/Textures/T_Voronoi.png" id="2_j8s3o"]
+[ext_resource type="ArrayMesh" uid="uid://cfdj0o5ktrrod" path="res://Scripts/VFX/Meshes/HitSlash.obj" id="3_netkt"]
+[ext_resource type="Texture2D" uid="uid://xb3di1qionvk" path="res://Scripts/VFX/Textures/T_Gradient002.png" id="4_wy4i8"]
+[ext_resource type="Shader" uid="uid://dy8ykihvevwnh" path="res://Scripts/VFX/M_Trail.tres" id="5_odgyj"]
+[ext_resource type="Texture2D" uid="uid://pkbhghenuurn" path="res://Scripts/VFX/Textures/T_Flare.PNG" id="6_s5el5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nph4v"]
+render_priority = 0
+shader = ExtResource("1_v60a7")
+shader_parameter/ColorParameter = Color(0.7815581, 0.18214479, 0.11644847, 1)
+shader_parameter/Panneo = Vector2(1, -0.5)
+shader_parameter/Texture2DParameter = ExtResource("2_j8s3o")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0te4d"]
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4a8rk"]
+render_priority = 0
+shader = ExtResource("1_v60a7")
+shader_parameter/ColorParameter = Color(1.7993398, 1.0966873, 3.2960818e-06, 1)
+shader_parameter/Panneo = Vector2(0.5, -1)
+shader_parameter/Texture2DParameter = ExtResource("2_j8s3o")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dn2ix"]
+render_priority = 0
+shader = ExtResource("1_v60a7")
+shader_parameter/ColorParameter = Color(0.5688937, 0.332486, 3.0900767e-07, 1)
+shader_parameter/Panneo = Vector2(0, 0)
+shader_parameter/Texture2DParameter = ExtResource("4_wy4i8")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0ehpn"]
+render_priority = 0
+shader = ExtResource("5_odgyj")
+shader_parameter/Color1 = Color(0.3959073, 0.33425796, 0, 1)
+shader_parameter/MainTexture = ExtResource("6_s5el5")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fcnuk"]
+particle_flag_align_y = true
+emission_shape_scale = Vector3(0, 1, -1)
+emission_shape = 1
+emission_sphere_radius = 0.55
+direction = Vector3(-1, 0, 0)
+spread = 15.0
+initial_velocity_min = 5.0
+initial_velocity_max = 8.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+scale_max = 0.5
+
+[sub_resource type="QuadMesh" id="QuadMesh_efh3n"]
+
+[node name="Rebound" type="Node3D" node_paths=PackedStringArray("MainHit", "MainHit2", "MainHit3", "Particles")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+script = ExtResource("1_j8s3o")
+MainHit = NodePath("MainHit")
+MainHit2 = NodePath("MainHit2")
+MainHit3 = NodePath("MainHit3")
+Particles = NodePath("Particles")
+
+[node name="MainHit" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1468358, 0, 0)
+material_override = SubResource("ShaderMaterial_nph4v")
+amount = 1
+fixed_fps = 60
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_0te4d")
+draw_pass_1 = ExtResource("3_netkt")
+
+[node name="MainHit2" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.180688, -0.034125566, 0)
+sorting_offset = -1.0
+material_override = SubResource("ShaderMaterial_4a8rk")
+amount = 1
+fixed_fps = 60
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_0te4d")
+draw_pass_1 = ExtResource("3_netkt")
+
+[node name="MainHit3" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.242908, -0.034125566, 0)
+sorting_offset = -1.0
+material_override = SubResource("ShaderMaterial_dn2ix")
+amount = 1
+fixed_fps = 60
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_0te4d")
+draw_pass_1 = ExtResource("3_netkt")
+
+[node name="Particles" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4858191, 0, 0)
+material_override = SubResource("ShaderMaterial_0ehpn")
+amount = 10
+lifetime = 0.5
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_fcnuk")
+draw_pass_1 = SubResource("QuadMesh_efh3n")

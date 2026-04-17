@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqun8glt84uhm"]
+
+[ext_resource type="PackedScene" uid="uid://bltj5cbypuovv" path="res://Scenes/Game/VFX/sparks.tscn" id="1_4kj60"]
+
+[node name="Impact" type="Node3D"]
+
+[node name="Sparks" parent="." instance=ExtResource("1_4kj60")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85254085, 0)
